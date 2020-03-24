@@ -1,0 +1,8 @@
+{
+  "appId": "br.com.myapp",
+  "appName": "myApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
