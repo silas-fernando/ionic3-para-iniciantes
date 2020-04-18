@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from '@ionic/angular';
-import { TabsPage } from '../tabs/tabs.page';
-import { RouterLink, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-intro',
@@ -10,7 +9,7 @@ import { RouterLink, Router } from '@angular/router';
 })
 export class IntroPage implements OnInit {
 
-  constructor(public router:Router) {}
+  constructor(private router:Router) {}
 
   ngOnInit() {
   }

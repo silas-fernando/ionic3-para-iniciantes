@@ -3,5 +3,11 @@
   "integrations": {
     "capacitor": {}
   },
-  "type": "angular"
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/apicartola",
+      "proxyUrl": "https://api.cartolafc.globo.com/api"
+    }
+  ]
 }

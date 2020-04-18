@@ -5,18 +5,27 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-card>
-    <img src="https://ionicframework.com/docs/demos/api/card/madison.jpg" />
+  <ion-refresher slot="fixed" (ionRefresh)="atualize($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let filme of listaFilmes">
+    <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.backdrop_path"/>
     <ion-card-header>
-      <ion-card-subtitle>{{nomeUsuario}}</ion-card-subtitle>
-      <ion-card-title class="feedTitle">Madison, WI</ion-card-title>
+      <ion-card-subtitle>{{filme.release_date}}</ion-card-subtitle>
+      <ion-card-title class="feedTitle">{{filme.original_title}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Madison é a capital do estado norte-americano do Wisconsin, no Condado de Dane. Foi fundada em 1836, e incorporada em 1848. O Aeroporto Regional do Condado de Dane serve a cidade.
+      {{filme.overview}}
     </ion-card-content>
+    <ion-button ion-button expand="full" shape="round" (click)="abrirDetalhes(filme)">Detalhes</ion-button>
   </ion-card>
-
+  
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
   <!--ion-card>
 
     <ion-item>

@@ -28,6 +28,36 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'atletas',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../atletas/atletas.module').then(m => m.AtletasPageModule)
+          }
+        ]
+      },
+      {
+        path: 'configuracoes',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../configuracoes/configuracoes.module').then(m => m.ConfiguracoesPageModule)
+          }
+        ]
+      },
+      {
+        path: 'perfil',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../perfil/perfil.module').then(m => m.PerfilPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tabs/home',
         pathMatch: 'full'
@@ -43,7 +73,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-  
+  exports: [RouterModule] 
 })
 export class TabsPageRoutingModule {}
